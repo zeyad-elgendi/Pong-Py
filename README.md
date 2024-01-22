@@ -1,6 +1,6 @@
 # Retro Pong Game in python
 
-![Pong Demo](pong_demo.gif)
+![Pong Demo](Pong-Demo.gif)
 
 ## Overview
 
