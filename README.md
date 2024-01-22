@@ -6,9 +6,9 @@
 
 This repository contains a simple retro-styled Pong game written in Python. It's a classic arcade game where two players control paddles to hit a ball back and forth.
 
-#License
+## License
 This Pong game is open-source and available under the MIT License.
 
-Author
+## Author
 zeyad elgendi
 GitHub: zeyad-elgendi
