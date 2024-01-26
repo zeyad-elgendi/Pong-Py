@@ -2,12 +2,14 @@
 import turtle
 import time
 import winsound
+#import simpleaudio as sa
 
 window =  turtle.Screen()
 window.title("Pong in python")
 window.bgcolor("black")
-window.setup(width=800,height=600)
+window.setup(width=806,height=600)
 window.tracer(0)
+#main game loop
 
 # Paddle A
 paddle_left = turtle.Turtle()
@@ -26,6 +28,7 @@ paddle_right.color("white")
 paddle_right.shapesize(stretch_wid=5,stretch_len=1)
 paddle_right.penup()
 paddle_right.goto(350,0)
+
 # Ball
 
 ball = turtle.Turtle()
@@ -62,12 +65,23 @@ pen.hideturtle()
 pen.goto(0,230)
 pen.color("white")
 
+pen2 = turtle.Turtle()
+pen2.speed(0)
+pen2.penup()
+pen2.hideturtle()
+pen2.goto(-378,0)
+pen2.color("white")
+pen2.write("A.I.", align="center", font=("Courier",12,"bold") )
+pen2.goto(378,0)
+pen2.write("P1", align="center", font=("Courier",12,"bold") )
 #keybord binding
 window.listen()
-window.onkeypress(paddle_left_up, "w") 
-window.onkeypress(paddle_left_down, "s")
+#window.onkeypress(paddle_left_up, "w") 
+#window.onkeypress(paddle_left_down, "s")
 window.onkeypress(paddle_right_up, "Up")
 window.onkeypress(paddle_right_down, "Down")
+
+start_time = time.time()
 
 def check_paddle_upper_limit(obj):
     if(obj.ycor() >250):
@@ -104,7 +118,12 @@ while True:
             ball.dx *= -1
             ball.setx(-335)
             
-    
+    if(ball.xcor() < 0 and ball.dx < 0):
+        if(ball.ycor() > paddle_left.ycor()+10):
+            paddle_left_up()
+        elif(ball.ycor() < paddle_left.ycor()-10):
+            paddle_left_down()
+
     check_paddle_limits(paddle_left)
     check_paddle_limits(paddle_right)
     #check border
