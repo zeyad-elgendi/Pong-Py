@@ -1,4 +1,4 @@
-#Retro Pong Game: Single-player vs AI. Classic arcade in Python
+# Retro Pong Game: Single-player vs AI. Classic arcade in Python
 
 ![Pong Demo](Pong-Demo.gif)
 
